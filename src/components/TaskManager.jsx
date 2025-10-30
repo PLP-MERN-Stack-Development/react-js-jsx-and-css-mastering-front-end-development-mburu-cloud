@@ -1,6 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import Button from './Button';
 
+const NoTasks = () => (
+  <li className="text-gray-400 dark:text-gray-500 text-center py-10 flex flex-col items-center gap-2 select-none">
+    <span className="text-6xl">📄</span>
+    <span className="mt-2 font-medium">No tasks found</span>
+    <span className="text-sm text-gray-400">Get started by adding your first task!</span>
+  </li>
+);
+
 /**
  * Custom hook for managing tasks with localStorage persistence
  */
@@ -71,10 +79,8 @@ const TaskManager = () => {
   };
 
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-lg shadow p-6">
-      <h2 className="text-2xl font-bold mb-6">Task Manager</h2>
-
-      {/* Task input form */}
+    <div>
+      <h2 className="text-2xl font-extrabold mb-8 text-center text-blue-600 dark:text-blue-300 tracking-tight">Task Manager</h2>
       <form onSubmit={handleSubmit} className="mb-6">
         <div className="flex gap-2">
           <input
@@ -82,16 +88,14 @@ const TaskManager = () => {
             value={newTaskText}
             onChange={(e) => setNewTaskText(e.target.value)}
             placeholder="Add a new task..."
-            className="flex-grow px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600"
+            className="flex-grow px-4 py-2 border rounded-lg bg-white dark:bg-gray-700 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 text-md shadow-sm"
           />
-          <Button type="submit" variant="primary">
-            Add Task
+          <Button type="submit" variant="primary" size="md">
+            Add
           </Button>
         </div>
       </form>
-
-      {/* Filter buttons */}
-      <div className="flex gap-2 mb-4">
+      <div className="flex gap-2 mb-5 justify-center">
         <Button
           variant={filter === 'all' ? 'primary' : 'secondary'}
           size="sm"
@@ -114,30 +118,24 @@ const TaskManager = () => {
           Completed
         </Button>
       </div>
-
-      {/* Task list */}
-      <ul className="space-y-2">
+      <ul className="space-y-2 transition-all">
         {filteredTasks.length === 0 ? (
-          <li className="text-gray-500 dark:text-gray-400 text-center py-4">
-            No tasks found
-          </li>
+          <NoTasks />
         ) : (
           filteredTasks.map((task) => (
             <li
               key={task.id}
-              className="flex items-center justify-between p-3 border rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 dark:border-gray-700"
+              className={`flex items-center justify-between p-3 border rounded-xl bg-gray-50 dark:bg-gray-700 border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-md transition-all`}
             >
               <div className="flex items-center gap-3">
                 <input
                   type="checkbox"
                   checked={task.completed}
                   onChange={() => toggleTask(task.id)}
-                  className="h-5 w-5 text-blue-600 rounded focus:ring-blue-500"
+                  className="h-5 w-5 text-blue-600 rounded-full focus:ring-blue-500 transition accent-blue-600"
                 />
                 <span
-                  className={`${
-                    task.completed ? 'line-through text-gray-500 dark:text-gray-400' : ''
-                  }`}
+                  className={`text-lg font-medium transition-colors ${task.completed ? 'line-through text-gray-400 dark:text-gray-400' : ''}`}
                 >
                   {task.text}
                 </span>
@@ -154,11 +152,9 @@ const TaskManager = () => {
           ))
         )}
       </ul>
-
-      {/* Task stats */}
-      <div className="mt-6 text-sm text-gray-500 dark:text-gray-400">
+      <div className="mt-8 text-sm text-center text-gray-500 dark:text-gray-400">
         <p>
-          {tasks.filter((task) => !task.completed).length} tasks remaining
+          {tasks.filter((task) => !task.completed).length} task{tasks.filter((task) => !task.completed).length !== 1 && 's'} remaining
         </p>
       </div>
     </div>

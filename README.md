@@ -1,69 +1,65 @@
-# React.js and Tailwind CSS Assignment
+# PLP Task Manager – React + Tailwind
 
-This assignment focuses on building a responsive React application using JSX and Tailwind CSS, implementing component architecture, state management, hooks, and API integration.
+---
 
-## Assignment Overview
+A modern, responsive task manager and API explorer app, built with React.js, Tailwind CSS, and Vite.
 
-You will:
-1. Set up a React project with Vite and Tailwind CSS
-2. Create reusable UI components
-3. Implement state management using React hooks
-4. Integrate with external APIs
-5. Style your application using Tailwind CSS
+## ✨ Features
 
-## Getting Started
+- Super-responsive, minimalistic UI using Tailwind CSS
+- Light/Dark mode with instant toggle and local storage save
+- Modern component-based architecture
+- Task manager with add/delete/complete/filter actions, all persisted to local storage
+- Explore data from a live API, with search, pagination, and error/loading states
+- Navigation between Home, Tasks, and API pages via dynamic routing
 
-1. Accept the GitHub Classroom assignment invitation
-2. Clone your personal repository that was created by GitHub Classroom
-3. Install dependencies:
-   ```
-   npm install
-   ```
-4. Start the development server:
-   ```
-   npm run dev
-   ```
+## 🚀 Getting Started
 
-## Files Included
+1. **Install Dependencies**
+    ```bash
+    npm install
+    ```
+2. **Start Development Server**
+    ```bash
+    npm run dev
+    ```
 
-- `Week3-Assignment.md`: Detailed assignment instructions
-- Starter files for your React application:
-  - Basic project structure
-  - Pre-configured Tailwind CSS
-  - Sample component templates
+## 💾 Build for Production
 
-## Requirements
+    npm run build
 
-- Node.js (v18 or higher)
-- npm or yarn
-- Modern web browser
-- Code editor (VS Code recommended)
+Serve locally via Vercel CLI, Netlify CLI, or a static server (see your chosen host).
 
-## Project Structure
+## 🌐 Deploy
 
-```
-src/
-├── components/       # Reusable UI components
-├── pages/           # Page components
-├── hooks/           # Custom React hooks
-├── context/         # React context providers
-├── api/             # API integration functions
-├── utils/           # Utility functions
-└── App.jsx          # Main application component
-```
+This app is ready for fast deployment to Vercel, Netlify, or any static host supporting Vite builds.
+- **Vercel:** [vercel.com](https://vercel.com/)
+- **Netlify:** [netlify.com](https://netlify.com/)
 
-## Submission
+- Link your repository to your platform.
+- Set the build command: `npm run build`
+- Set the publish directory: `dist`
+- Deploy and copy the provided URL below:
 
-Your work will be automatically submitted when you push to your GitHub Classroom repository. Make sure to:
+### Deployed App: [Paste your URL here]
 
-1. Complete all required components and features
-2. Implement proper state management with hooks
-3. Integrate with at least one external API
-4. Style your application with Tailwind CSS
-5. Deploy your application and add the URL to your README.md
+## 🖼️ Screenshots
+- Add at least one screenshot of the app running (Home page, Task page, API page recommended)
 
-## Resources
+## 📁 Project Structure
 
+- See source tree in this repo. Main folders: `components/`, `pages/`, `hooks/`, `context/`, `api/`, `App.jsx`
+
+## 🤝 How to Contribute
+Feel free to fork, make pull requests, or open issues for bugs/suggestions.
+
+---
+
+Assignment spec: See `Week3-Assignment.md` in this repo.
+
+---
+
+## Credits
 - [React Documentation](https://react.dev/)
 - [Tailwind CSS Documentation](https://tailwindcss.com/docs)
 - [Vite Documentation](https://vitejs.dev/guide/)
